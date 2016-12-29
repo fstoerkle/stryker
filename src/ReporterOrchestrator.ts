@@ -2,6 +2,7 @@ import {StrykerOptions} from 'stryker-api/core';
 import {Reporter, ReporterFactory} from 'stryker-api/report';
 import ClearTextReporter from './reporters/ClearTextReporter';
 import ProgressReporter from './reporters/ProgressReporter';
+import JsonReporter from './reporters/JsonResultReporter';
 import EventRecorderReporter from './reporters/EventRecorderReporter';
 import BroadcastReporter, {NamedReporter} from './reporters/BroadcastReporter';
 import * as log4js from 'log4js';
@@ -45,6 +46,7 @@ export default class ReporterOrchestrator {
   private registerDefaultReporters() {
     ReporterFactory.instance().register('progress', ProgressReporter);
     ReporterFactory.instance().register('clear-text', ClearTextReporter);
-    ReporterFactory.instance().register('event-recorder', EventRecorderReporter); 
+    ReporterFactory.instance().register('event-recorder', EventRecorderReporter);
+    ReporterFactory.instance().register('json-reporter', JsonReporter);
  }
 }
