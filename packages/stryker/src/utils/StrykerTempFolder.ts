@@ -2,7 +2,7 @@ import * as fs from 'mz/fs';
 import * as path from 'path';
 import * as mkdirp from 'mkdirp';
 import * as log4js from 'log4js';
-import { deleteDir} from './fileUtils';
+import { deleteDir } from './fileUtils';
 
 const log = log4js.getLogger('StrykerTempFolder');
 
@@ -49,7 +49,7 @@ function writeFile(filename: string, data: string): Promise<void> {
  */
 function copyFile(fromFilename: string, toFilename: string, instrumenter: NodeJS.ReadWriteStream | null): Promise<void> {
   return new Promise<void>((resolve, reject) => {
-    let readStream: NodeJS.ReadableStream = fs.createReadStream(fromFilename, { encoding: 'utf8' });
+    let readStream: NodeJS.ReadableStream = fs.createReadStream(fromFilename);
     let writeStream = fs.createWriteStream(toFilename);
     readStream.on('error', reject);
     writeStream.on('error', reject);
