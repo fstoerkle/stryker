@@ -1,0 +1,44 @@
+{
+  "name": "stryker-ava-runner",
+  "version": "0.0.1",
+  "description": "A plugin to use ava in Stryker, the JavaScript mutation testing framework",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "tsc -w",
+    "clean": "rimraf \"+(test|src)/**/*+(.d.ts|.js|.map)\" .nyc_output reports coverage",
+    "prebuild": "npm run clean",
+    "build": "tsc -p .",
+    "postbuild": "tslint -p tsconfig.json",
+    "test": "nyc --reporter=html --report-dir=reports/coverage --check-coverage --lines 80 --functions 80 --branches 75 mocha \"test/**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stryker-mutator/stryker"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "keywords": [
+    "stryker",
+    "stryker-plugin",
+    "ava",
+    "stryker-test-runner"
+  ],
+  "author": "Florian Störkle <florian@stoerkle.net>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/stryker-mutator/stryker/issues"
+  },
+  "homepage": "https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-ava-runner#readme",
+  "dependencies": {
+    "log4js": "^1.1.1",
+    "tslib": "^1.5.0"
+  },
+  "devDependencies": {
+    "stryker-api": "^0.13.0"
+  },
+  "peerDependencies": {
+    "ava": "^0.25.0",
+    "stryker-api": "^0.13.0"
+  }
+}
