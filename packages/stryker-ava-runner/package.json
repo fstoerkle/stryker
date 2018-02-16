@@ -31,7 +31,9 @@
   },
   "homepage": "https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-ava-runner#readme",
   "dependencies": {
+    "execa": "^0.9.0",
     "log4js": "^1.1.1",
+    "tap-parser": "^7.0.0",
     "tslib": "^1.5.0"
   },
   "devDependencies": {
